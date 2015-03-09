@@ -12,26 +12,24 @@
 (require 'uniquify)    ;;Handles when you have two files of the same name in different directories opened.
 (require 'ansi-color)
 ;;NOT NEEDED(require 'recentf) 
-(require 'linum)       ;;Might have to install 
-(require 'smooth-scrolling) ;;Might have to install
+;;(require 'linum)                ;;Might have to install 
+;;(require 'smooth-scrolling)     ;;Might have to install
 ;;NOT NEEDED(require 'whitespace)
 (require 'dired-x)     ;;Expanded version of dired-mode that lets you interactive with directories.
 (require 'compile)    
-(ido-mode t)
-(menu-bar-mode -1)
-(normal-erase-is-backspace-mode 0)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(setq column-number-mode t)
-(setq inhibit-startup-message t)
-(setq save-abbrevs nil)
-(setq show-trailing-whitespace t)
-(setq suggest-key-bindings t)
-(setq vc-follow-symlinks t)
-;; Below adds row numbers to the left of all documents
-(global-linum-mode 1)
-;; Below makes parenthesis create two to stay matched
-(electric-pair-mode 1)
+(ido-mode t)                         ;;actually turns on ido-moden
+(menu-bar-mode -1)                   ;;turns the top and bottom menus off because I won't need them in the terminal
+(normal-erase-is-backspace-mode 0)   ;;makes backspace function correctly on ubuntu
+(put 'downcase-region 'disabled nil) ;;enables the downcase-region advanced feature
+(put 'upcase-region 'disabled nil)   ;;enables the upcase-region advanced feature
+(setq column-number-mode t)          ;;makes it so the line number the cursor is on is displayed next to the character above the mini-buffer
+(setq inhibit-startup-message t)     ;;turns off startup message
+(setq save-abbrevs nil)              ;;stops emacs from prompting to save the abbreviations if you happen to use them.
+(setq show-trailing-whitespace t)    
+(setq suggest-key-bindings t)        ;;If you run a command using M-x COMMAND, it will show the shortcut on the mini-buffer afterwards
+(setq vc-follow-symlinks t)          ;;Tells emacs to open the actual file if you open a sym-linked file version controlled file.
+;;(global-linum-mode 1)              ;; adds row numbers to the left of all documents. EXTERNAL LIBRARY
+(electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -56,7 +54,7 @@
 ;; ------------
 ;; -- Macros --
 ;; ------------
-;;NOT NEEDED (load "defuns-config.el")
+;;NOT NEEDED (load "defuns-config.el") 
 (fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
 (global-set-key "\M-=" 'align-equals)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
