@@ -1,0 +1,14 @@
+# This file defines the global .gitignore settings
+# To make git utilize it, you have to run:
+# git config --global core.excludesfile ~/.gitignore_global
+# This should automatically be done in my setup.sh after 
+# installing git though.
+# To check what the global git ignore is, use:
+# git config --get core.excludesfile
+
+# IGNORE ALL EMACS BACK-UP FILES
+# The back-slash before the hash symbol below escapes the
+# hash from making that line a comment.
+
+*~
+\#*#
