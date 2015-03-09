@@ -1,21 +1,22 @@
 ;; -*- mode: emacs-lisp -*-
-;; Simple .emacs configuration
+;; The items changed from the initital
+;; start-up class init.el have beem marked with ;;NOT NEEDED
 
 ;; ---------------------
 ;; -- Global Settings --
 ;; ---------------------
 (add-to-list 'load-path "~/.emacs.d")
-(require 'cl)
-(require 'ido)
-(require 'ffap)
-(require 'uniquify)
+(require 'cl)          ;;Includes the common lisp package
+(require 'ido)         ;;Interactive Do. Improves name completion and lots of other things.
+(require 'ffap)        ;;Improves the power of file finds etc.
+(require 'uniquify)    ;;Handles when you have two files of the same name in different directories opened.
 (require 'ansi-color)
-(require 'recentf)
-(require 'linum)
-(require 'smooth-scrolling)
-(require 'whitespace)
-(require 'dired-x)
-(require 'compile)
+;;NOT NEEDED(require 'recentf) 
+(require 'linum)       ;;Might have to install 
+(require 'smooth-scrolling) ;;Might have to install
+;;NOT NEEDED(require 'whitespace)
+(require 'dired-x)     ;;Expanded version of dired-mode that lets you interactive with directories.
+(require 'compile)    
 (ido-mode t)
 (menu-bar-mode -1)
 (normal-erase-is-backspace-mode 0)
@@ -55,7 +56,7 @@
 ;; ------------
 ;; -- Macros --
 ;; ------------
-(load "defuns-config.el")
+;;NOT NEEDED (load "defuns-config.el")
 (fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
 (global-set-key "\M-=" 'align-equals)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
