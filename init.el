@@ -7,16 +7,16 @@
 ;; ---------------------
 (add-to-list 'load-path "~/.emacs.d")
 (require 'cl)          ;;Includes the common lisp package
-(require 'ido)         ;;Interactive Do. Improves name completion and lots of other things.
-(require 'ffap)        ;;Improves the power of file finds etc.
+(require 'ido)         ;;Interactive Do enables C-x b changes the buffer. C-x C-f does find file.
+(require 'ffap)        ;;Improves the power of file finds etc. Lets you used C-x d for ffap-list-directory
+(require 'dired-x)     ;;Provides methods for viewing/visiting a file mentioned in a file opened in a buffer.
 (require 'uniquify)    ;;Handles when you have two files of the same name in different directories opened.
 (require 'ansi-color)
-;;NOT NEEDED(require 'recentf) 
-;;(require 'linum)                ;;Might have to install 
-;;(require 'smooth-scrolling)     ;;Might have to install
+;;NOT NEEDED(require 'recentf)    ;;lets you interact with recentfiles, I don't have any functions key-bound though.
+(require 'linum)                  ;;puts line numbers in files. Should be installed in emacs 22+
+;;(require 'smooth-scrolling)     ;;Might have to installf
 ;;NOT NEEDED(require 'whitespace)
-(require 'dired-x)     ;;Expanded version of dired-mode that lets you interactive with directories.
-(require 'compile)    
+;;(require 'compile)    
 (ido-mode t)                         ;;actually turns on ido-moden
 (menu-bar-mode -1)                   ;;turns the top and bottom menus off because I won't need them in the terminal
 (normal-erase-is-backspace-mode 0)   ;;makes backspace function correctly on ubuntu
@@ -28,7 +28,7 @@
 (setq show-trailing-whitespace t)    
 (setq suggest-key-bindings t)        ;;If you run a command using M-x COMMAND, it will show the shortcut on the mini-buffer afterwards
 (setq vc-follow-symlinks t)          ;;Tells emacs to open the actual file if you open a sym-linked file version controlled file.
-;;(global-linum-mode 1)              ;; adds row numbers to the left of all documents. EXTERNAL LIBRARY
+(global-linum-mode 1)                ;;Turns linum-mode on globally to add line numbers to all files.
 (electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
 
 (custom-set-faces
@@ -56,7 +56,7 @@
 ;; ------------
 ;;NOT NEEDED (load "defuns-config.el") 
 (fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
-(global-set-key "\M-=" 'align-equals)
+(global-set-key "\M-=" 'align-equals)                     ;;This aligns the assignment operators (=) throughout the document
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c;" 'comment-or-uncomment-region)
 (global-set-key "\M-n" 'next5)
