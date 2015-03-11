@@ -8,6 +8,11 @@ setup.sh. In case I just want to pull this repo down just to get the
 .bashrc, I've tried to include logic to ignore the program specific
 configuration items when the programs aren't installed.
 
+The main benefit of using this method is that ALL configuration files
+will be located in ~/dotfiles. Continue to add configuration files from
+other programs to this directory and push back up to the github repo
+to ease any deployments on other computers.
+
 ```sh
 cd $HOME
 git clone https://github.com/dfeagans/dotfiles.git
