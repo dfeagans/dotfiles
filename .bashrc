@@ -130,9 +130,10 @@ shopt -s histappend
     # It's used to start the color change definition. It's ended with m backslash.
     # The new line at the end is so the command is on a line by itself.
     # That makes it easier to copy the full command out by triple clicking.
-    # Orignal: PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
-PS1="\[\033[1;32m\][\u:\w]$\[\033[0m\]\n"
-
+    # Original: PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
+    # Dynamic Username: PS1="\[\033[1;32m\][\u:\w]$\[\033[0m\]\n"
+    # Fixed prompt because changing the username on AWS EC2 is not a trivial process:
+PS1="\[\033[1;32m\][ODIN:\w]$\[\033[0m\]\n"
 ## -----------------------
 ## -- 2) Set up aliases --
 ## -----------------------
