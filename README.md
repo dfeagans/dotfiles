@@ -15,6 +15,7 @@ to ease any deployments on other computers.
 
 ```sh
 cd $HOME
+# git clone will fail if dotfiles directory already exists, so mv dotfiles dotfiles.old if necessary.
 git clone https://github.com/dfeagans/dotfiles.git
 ln -sb dotfiles/.screenrc .
 ln -sb dotfiles/.bash_profile .
