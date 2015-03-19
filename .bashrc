@@ -189,8 +189,10 @@ if [ -s ~/.nvm/nvm.sh ]; then
     NVM_DIR=~/.nvm
     source ~/.nvm/nvm.sh
     #nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync 
-    # The above line is commented out because I don't like that it has a hardcoded node version called out.
-    # I hopefully won't have any issues because I don't use rsync
+    # The above line was originally connected out because I didn't like how it hard-coded a version number in.
+    # It actually sets up node and npm everything you login, create a new screen, or create a new terminal.
+    # Instead, the setup.sh script ran "nvm alias default stable" to basically do that from the start.
+    # I think it's an improvement because the funcitonality isn't hidden in the .bashrc; it remains in nvm.
 fi
 
 # Custom Aliases
