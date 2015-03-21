@@ -87,14 +87,17 @@ hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 # 2.3) Define default starting configuration when the screen command is run by itself
 # Creates a horizontally divided screen, with a large emacs top section (activated), and a smaller bash
 # window on the bottom. It then saves that as the default layout so it will remain after disconnecting.
-screen -t bash 1
-screen -t emacs 0
 split
-focus
-select 1
-focus
 resize +20
-clear
+screen -t emacs 2
+focus
+screen -t bash 1 
+
+#select 1
+#focus
+#select 2
+#focus
+#clear
 layout save default
 
 # 2.4) Description of the keywords used in hardstatus
