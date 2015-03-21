@@ -84,8 +84,6 @@
 ;; ---------------------------
 ;; ---- DF's Custom Keys -----
 ;; ---------------------------
-;; Below makes comments more visible
-(set-face-foreground 'font-lock-comment-face "light pink")
 ;; This enables reloading the file if you've modified it. Useful after Git checkout.
 (global-set-key (kbd "C-c r") 'revert-buffer)
 ;; This enables the erase-buffer command. It's turned off by default otherwise.
