@@ -92,12 +92,7 @@ resize +20
 screen -t emacs 2
 focus
 screen -t bash 1 
-
-#select 1
-#focus
-#select 2
-#focus
-#clear
+focus
 layout save default
 
 # 2.4) Description of the keywords used in hardstatus
