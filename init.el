@@ -1,6 +1,4 @@
 ;; -*- mode: emacs-lisp -*-
-;; The items changed from the initital
-;; start-up class init.el have beem marked with ;;NOT NEEDED
 
 ;; ---------------------
 ;; -- Global Settings --
@@ -13,24 +11,24 @@
 ;;(require 'uniquify)    ;;Handles when you have two files of the same name in different directories opened.
 ;;(require 'ansi-color)
 ;;NOT NEEDED(require 'recentf)    ;;lets you interact with recentfiles, I don't have any functions key-bound though.
-;;(require 'linum)                  ;;puts line numbers in files. Should be installed in emacs 22+
-(require 'smooth-scrolling)     ;;Definitely have to install
 ;;NOT NEEDED(require 'whitespace)
-;;(require 'compile)    
-;;(ido-mode t)                         ;;actually turns on ido-moden
-(menu-bar-mode -1)                   ;;turns the top and bottom menus off because I won't need them in the terminal
-(normal-erase-is-backspace-mode 0)   ;;makes backspace function correctly on ubuntu
-(put 'downcase-region 'disabled nil) ;;enables the downcase-region advanced feature
-(put 'upcase-region 'disabled nil)   ;;enables the upcase-region advanced feature
-(put 'erase-buffer 'disabled nil)    ;;enables erase-buffer, useful for clearing out repl buffer for more commands.
-(setq column-number-mode t)          ;;makes it so the line number the cursor is on is displayed next to the character above the mini-buffer
-(setq inhibit-startup-message t)     ;;turns off startup message
-(setq save-abbrevs nil)              ;;stops emacs from prompting to save the abbreviations if you happen to use them.
-(setq show-trailing-whitespace t)    
-(setq suggest-key-bindings t)        ;;If you run a command using M-x COMMAND, it will show the shortcut on the mini-buffer afterwards
-(setq vc-follow-symlinks t)          ;;Tells emacs to open the actual file if you open a sym-linked file version controlled file.
-;;(global-linum-mode 1)                ;;Turns linum-mode on globally to add line numbers to all files.
+;;(require 'compile)                 ;; !!!!MIGHT BE NEEDED FOR THE JS-MODE!!!!
+;;(ido-mode t)                         ;; actually turns on ido-mode
+(setq inhibit-startup-message t)     ;; turns off startup message
+(menu-bar-mode -1)                   ;; turns the top and bottom menus off because I won't need them in the terminal
+(setq suggest-key-bindings t)        ;; If you run a command using M-x COMMAND, it will show the shortcut on the mini-buffer afterwards
+(setq column-number-mode t)          ;; makes it so the line number the cursor is on is displayed next to the character above the mini-buffer
+(normal-erase-is-backspace-mode 0)   ;; makes backspace function correctly on ubuntu
+(put 'downcase-region 'disabled nil) ;; enables the downcase-region advanced feature
+(put 'upcase-region 'disabled nil)   ;; enables the upcase-region advanced feature
+(put 'erase-buffer 'disabled nil)    ;; enables erase-buffer, useful for clearing out repl buffer for more commands.
+(setq save-abbrevs nil)              ;; stops emacs from prompting to save the abbreviations if you happen to use them.
+(setq vc-follow-symlinks t)          ;; Tells emacs to open the actual file if you open a sym-linked file version controlled file.
 (electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
+;;(setq show-trailing-whitespace t)
+;;(require 'linum)                  ;; puts line numbers in files. Should be installed in emacs 22+
+;;(global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files.
+(require 'smooth-scrolling)          ;; Makes emacs scroll smoothly, instead of jumping new line to center of the window vertically.
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -52,24 +50,46 @@
  '(vertical-border ((t nil)))
 )
 
-;; ------------
-;; -- Macros --
-;; ------------
-(global-set-key (kbd "C-c r") 'revert-buffer) ;; This enables reloading the file if you've modified it. Useful after Git checkout.
-;;NOT NEEDED (load "defuns-config.el") 
-(fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
-(global-set-key "\M-=" 'align-equals)                     ;;This aligns the assignment operators (=) throughout the document
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c;" 'comment-or-uncomment-region)
+;; ---------------------------
+;; --------- Macros ----------
+;; ---------------------------
+(global-set-key (kbd "C-c r") 'revert-buffer)            ;; This enables reloading the file if you've modified it. Useful after Git checkout.
+(global-set-key "\C-c;" 'comment-or-uncomment-region)    ;; Toggles commenting on selected region. More powerful than single line C-; commenting.
+(global-set-key "\M-o" 'other-window)                    ;; Jumps to ther windows within emacs should you have them open.
+
+(defun next5()
+  (interactive)
+  (next-line 5)
+)
+(defun prev5()
+  (interactive)
+  (previous-line 5)
+)
+(defun delete-word (arg)
+  "Delete characters forward until encountering the end of a word.
+With argument, do this that many times."
+  (interactive "p")
+  (delete-region (point) (progn (forward-word arg) (point))))
+(defun backward-delete-word (arg)
+  "Delete characters backward until encountering the end of a word.
+With argument, do this that many times.
+http://www.emacswiki.org/emacs/BackwardDeleteWord
+"
+  (interactive "p")
+  (delete-word (- arg)))
+
 (global-set-key "\M-n" 'next5)
 (global-set-key "\M-p" 'prev5)
-(global-set-key "\M-o" 'other-window)
-(global-set-key "\M-i" 'back-window)
-(global-set-key "\C-z" 'zap-to-char)
-(global-set-key "\C-h" 'backward-delete-char)
 (global-set-key "\M-d" 'delete-word)
-(global-set-key "\M-h" 'backward-delete-word)
-(global-set-key "\M-u" 'zap-to-char)
+(global-set-key "\C-h" 'delete-backward-char)
+(global-set-key "\M-h" 'delete-backward-word)
+
+;; -------- Used Less --------
+(global-set-key "\M-u" 'whitespace-cleanup)               ;;This removes starting and trailing empty lines. Does something with tabs/spaces, but not sure.
+(fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
+(global-set-key "\M-=" 'align-equals)                     ;; This aligns the assignment operators (=) throughout the document
+(global-set-key "\C-x\C-m" 'execute-extended-command)     ;; This lets you run commands, just like M-x
+(global-set-key "\C-z" 'zap-to-char)                      ;; Yanks up to the character you enter the prompt. Useful for deleting sentences (.
 
 ;; ---------------------------
 ;; -- JS Mode configuration --
@@ -79,14 +99,14 @@
 ;;(load "js-config.el")
 ;;(add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
 ;;(require 'sws-mode)
-;;(require 'jade-mode)    
+;;(require 'jade-mode)
 ;;(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;; ---------------------------
 ;; ---- Load Markdown Mode ---
 ;; ---------------------------
-;; THIS MODE IS NO LONGER USED, JUST FOR REFERENCE NOW 
+;; THIS MODE IS NO LONGER USED, JUST FOR REFERENCE NOW
 ;; Loads Markdown Mode (http://jblevins.org/projects/markdown-mode/) for the syntax highlighting.
 ;; The rest of the options of markdown mode are defined in markdown-mode.el
 ;;(autoload 'markdown-mode "markdown-mode"
@@ -98,7 +118,7 @@
 ;; ---------------------------
 ;; ---- WriteGood Mode -------
 ;; ---------------------------
-;; THIS MODE IS NO LONGER USED, JUST FOR REFERENCE NOW 
+;; THIS MODE IS NO LONGER USED, JUST FOR REFERENCE NOW
 ;; USAGE INFO: bnbeckwith.com/code/writegood-mode.html
 ;; GIT PAGE: www.github.com/bnbeckwith/writegood-mode
 
