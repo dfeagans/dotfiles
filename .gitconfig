@@ -12,3 +12,5 @@
 	# I would normally specify editor = emacs here so that git uses emacs for commit messages, but that's
 	# already handled because git uses whatever's specified in the VISUAL or EDITOR environment variables
 	# by default and my .bashrc specifies those as emacs -nw (no windowing system).
+[push]
+	default = simple
