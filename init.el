@@ -26,8 +26,7 @@
 (setq vc-follow-symlinks t)          ;; Tells emacs to open the actual file if you open a sym-linked file version controlled file.
 (electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
 ;;(setq show-trailing-whitespace t)
-;;(require 'linum)                  ;; puts line numbers in files. Should be installed in emacs 22+
-;;(global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files.
+(global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files. linum.elc is in emacs24 by default.
 (require 'smooth-scrolling)          ;; Makes emacs scroll smoothly, instead of jumping new line to center of the window vertically.
 
 (custom-set-faces
