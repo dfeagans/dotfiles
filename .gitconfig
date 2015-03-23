@@ -2,7 +2,7 @@
 	name = dfeagans
 	email = dane.feagans@gmail.com
 [alias]
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	h = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	c = commit -m
 	a = add
 	s = status
