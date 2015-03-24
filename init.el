@@ -11,7 +11,6 @@
 ;;(require 'uniquify)    ;;Handles when you have two files of the same name in different directories opened.
 ;;(require 'ansi-color)
 ;;NOT NEEDED(require 'recentf)    ;;lets you interact with recentfiles, I don't have any functions key-bound though.
-;;NOT NEEDED(require 'whitespace)
 ;;(require 'compile)                 ;; !!!!MIGHT BE NEEDED FOR THE JS-MODE!!!!
 ;;(ido-mode t)                         ;; actually turns on ido-mode
 (setq inhibit-startup-message t)     ;; turns off startup message
@@ -25,7 +24,6 @@
 (setq save-abbrevs nil)              ;; stops emacs from prompting to save the abbreviations if you happen to use them.
 (setq vc-follow-symlinks t)          ;; Tells emacs to open the actual file if you open a sym-linked file version controlled file.
 (electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
-;;(setq show-trailing-whitespace t)
 (global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files. linum.elc is in emacs24 by default.
 (require 'smooth-scrolling)          ;; Makes emacs scroll smoothly, instead of jumping new line to center of the window vertically.
 
