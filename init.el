@@ -6,8 +6,8 @@
 (add-to-list 'load-path "~/.emacs.d")
 ;;(require 'cl)          ;;Includes the common lisp language. Not going to require unless I need it.
 (require 'ido)           ;;Interactive Do enables C-x b changes the buffer. Improves functionality of C-x C-f
+(require 'uniquify)    ;;Handles when you have two files of the same name in different directories opened.
 ;;(require 'dired-x)     ;;Provides methods for viewing/visiting a file mentioned in a file opened in a buffer.
-;;(require 'uniquify)    ;;Handles when you have two files of the same name in different directories opened.
 ;;(require 'ansi-color)
 ;;NOT NEEDED(require 'recentf)    ;;lets you interact with recentfiles, I don't have any functions key-bound though.
 ;;(require 'compile)                 ;; !!!!MIGHT BE NEEDED FOR THE JS-MODE!!!!
@@ -23,6 +23,7 @@
 (ido-mode t)                         ;; actually turns on ido-mode
 (setq ido-use-filename-at-point 'guess) ;; uses the ffap built into ido. Pretty cool, actually works on (require 'library). Mildly annoying when you don't want it.
 (setq ido-enable-flex-matching t)    ;; lets C-x C-f find file return the file test_name if you type, "tn" for example.
+(setq uniquify-buffer-name-style 'forward) ;; makes it so that uniquify identifies files using the style: "as/many/parentdirs/as/needed/filename"
 (setq inhibit-startup-message t)     ;; turns off startup message
 (electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
 (global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files. linum.elc is in emacs24 by default.
