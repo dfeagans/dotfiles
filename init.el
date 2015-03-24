@@ -38,13 +38,14 @@
  '(flymake-errline ((((class color) (background light)) (:background "Red"))))
  '(font-lock-comment-face ((((class color) (min-colors 8) (background light)) (:foreground "red"))))
  '(fundamental-mode-default ((t (:inherit default))))
- '(highlight ((((class color) (min-colors 8)) (:background "hite" :foreground "magenta"))))
+ '(highlight ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(isearch ((((class color) (min-colors 8)) (:background "yellow" :foreground "black"))))
  '(linum ((t (:foreground "black" :weight bold))))
  '(region ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(secondary-selection ((((class color) (min-colors 8)) (:background "gray" :foreground "cyan"))))
  '(show-paren-match ((((class color) (background light)) (:background "black"))))
  '(vertical-border ((t nil)))
+ '(minibuffer-prompt ((((class color) (min-colors 8)) (:background "black" :foreground "magenta"))))
 )
 
 ;; ---------------------------
