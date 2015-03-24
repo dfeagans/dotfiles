@@ -11,8 +11,6 @@
 ;;(require 'ansi-color)
 ;;NOT NEEDED(require 'recentf)    ;;lets you interact with recentfiles, I don't have any functions key-bound though.
 ;;(require 'compile)                 ;; !!!!MIGHT BE NEEDED FOR THE JS-MODE!!!!
-(ido-mode t)                         ;; actually turns on ido-mode
-(setq inhibit-startup-message t)     ;; turns off startup message
 (menu-bar-mode -1)                   ;; turns the top and bottom menus off because I won't need them in the terminal
 (setq suggest-key-bindings t)        ;; If you run a command using M-x COMMAND, it will show the shortcut on the mini-buffer afterwards
 (setq column-number-mode t)          ;; makes it so the line number the cursor is on is displayed next to the character above the mini-buffer
@@ -22,6 +20,10 @@
 (put 'erase-buffer 'disabled nil)    ;; enables erase-buffer, useful for clearing out repl buffer for more commands.
 (setq save-abbrevs nil)              ;; stops emacs from prompting to save the abbreviations if you happen to use them.
 (setq vc-follow-symlinks t)          ;; Tells emacs to open the actual file if you open a sym-linked file version controlled file.
+(ido-mode t)                         ;; actually turns on ido-mode
+(setq ido-use-filename-at-point 'guess) ;; uses the ffap built into ido. Pretty cool, actually works on (require 'library). Mildly annoying when you don't want it.
+(setq ido-enable-flex-matching t)    ;; lets C-x C-f find file return the file test_name if you type, "tn" for example.
+(setq inhibit-startup-message t)     ;; turns off startup message
 (electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
 (global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files. linum.elc is in emacs24 by default.
 (require 'smooth-scrolling)          ;; Makes emacs scroll smoothly, instead of jumping new line to center of the window vertically.
