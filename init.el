@@ -6,7 +6,7 @@
 (add-to-list 'load-path "~/.emacs.d")
 ;;(require 'cl)                      ;; Includes the common lisp language. Not going to require unless I need it.
 ;;(require 'dired-x)                 ;; Not going to use unless I find normal dired limiting
-;;(require 'recentf)                 ;; starts tracking recently opened files, need to use a key-binding though. Start using if I think I need it.
+;;(require 'recentf)                 ;; Tracks recent files: http://emacsredux.com/blog/2013/04/05/recently-visited-files/
 ;;(require 'compile)                 ;; !!!!MIGHT BE NEEDED FOR THE JS-MODE!!!!
 (require 'ido)                       ;; Interactive Do enables C-x b changes the buffer. Improves functionality of C-x C-f
 (require 'uniquify)                  ;; Handles when you have two files of the same name in different directories opened.
@@ -28,6 +28,7 @@
 (setq inhibit-startup-message t)     ;; turns off startup message
 (electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
 (global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files. linum.elc is in emacs24 by default.
+(fset 'yes-or-no-p 'y-or-n-p)        ;; shortens all the yes-or-no prompts to y-or-n
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -57,6 +58,11 @@
 (global-set-key "\C-c;" 'comment-or-uncomment-region)    ;; Toggles commenting on selected region. More powerful than single line C-; commenting.
 (global-set-key "\M-o" 'other-window)                    ;; Jumps to ther windows within emacs should you have them open.
 
+(defun multi-occur-in-all-open-buffers(regexp &optional allbufs)
+  "Show all lines mathcing REGEXP in all buffers."
+  (interactive (occur-read-primary-args))
+  (multi-occur-in-matching-buffers ".*" regexp)
+)
 (defun next5()
   (interactive)
   (next-line 5)
@@ -78,6 +84,7 @@ http://www.emacswiki.org/emacs/BackwardDeleteWord
   (interactive "p")
   (delete-word (- arg)))
 
+(global-set-key (kbd "M-s s") 'multi-occur-in-all-open-buffers)
 (global-set-key "\M-n" 'next5)
 (global-set-key "\M-p" 'prev5)
 (global-set-key "\M-d" 'delete-word)
