@@ -22,16 +22,9 @@ ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.gitconfig .
 ln -sb dotfiles/.gitignore_global .
+ln -sb dotfiles/init.el ~/.emacs/.
+ln -sb dotfiles/my-packages ~/.emacs.
 ```
-Once I figure out an intelligent method for deploying the emacs environment
-the relevant details will be added. The start-up class included the entire
-.emacs.d directory and init.el in the repo. Then it implemented it using:
-
-```sh
-mv .emacs.d .emacs.d~
-ln -s dotfiles/.emacs.d .
-```
-
-I'd like to come up with a more elegent method that avoids freezing it in
-time. Right now, my init.el is included in the repo for reference, but note
-it's deliberately absent in the sym-linking instructions above.
+The emacs configuration is completely handled by init.el and my-packages.el.
+init.el contains the configuration items that don't require external packages/libraries.
+my-packages.el specifies what libraries to install, installs them, AND configures them.
