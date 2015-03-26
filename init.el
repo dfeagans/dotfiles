@@ -4,14 +4,14 @@
 ;; -- Global Settings --
 ;; ---------------------
 (add-to-list 'load-path "~/.emacs.d")
-;;(require 'cl)                      ;; Includes the common lisp language. Not going to require unless I need it.
+(require 'cl)                        ;; Includes the common lisp language. Used in my-packages and ...
 ;;(require 'dired-x)                 ;; Not going to use unless I find normal dired limiting
 ;;(require 'recentf)                 ;; Tracks recent files: http://emacsredux.com/blog/2013/04/05/recently-visited-files/
 ;;(require 'compile)                 ;; !!!!MIGHT BE NEEDED FOR THE JS-MODE!!!!
 (require 'ido)                       ;; Interactive Do enables C-x b changes the buffer. Improves functionality of C-x C-f
 (require 'uniquify)                  ;; Handles when you have two files of the same name in different directories opened.
 (require 'ansi-color)                ;; Useful for the ansi-color-for-comint-mode-on. 
-(require 'smooth-scrolling)          ;; Makes emacs scroll smoothly, instead of jumping new line to center of the window vertically.
+(load "~/dotfiles/my-packages.el")   ;; Loads AND configures the external packages I use.
 (menu-bar-mode -1)                   ;; turns the top and bottom menus off because I won't need them in the terminal
 (setq suggest-key-bindings t)        ;; If you run a command using M-x COMMAND, it will show the shortcut on the mini-buffer afterwards
 (setq column-number-mode t)          ;; makes it so the line number the cursor is on is displayed next to the character above the mini-buffer
