@@ -55,13 +55,13 @@
 ;; --------- Macros ----------
 ;; ---------------------------
 (global-set-key (kbd "C-c r") 'revert-buffer)            ;; This enables reloading the file if you've modified it. Useful after Git checkout.
-(global-set-key "\C-c;" 'comment-or-uncomment-region)    ;; Toggles commenting on selected region. More powerful than single line C-; commenting.
+(global-set-key "\C-c;" 'comment-or-uncomment-region)    ;; Toggles commenting on selected region. M-; just comments the selection. This actually toggles it.
 (global-set-key "\M-o" 'other-window)                    ;; Jumps to ther windows within emacs should you have them open.
 
-(defun multi-occur-in-all-open-buffers(regexp &optional allbufs)
+(defun multi-occur-in-all-open-buffers(regexp &optional allbufs) ;; This just makes the function just absorbe addt'l arguments my making it optional ... I think.
   "Show all lines mathcing REGEXP in all buffers."
-  (interactive (occur-read-primary-args))
-  (multi-occur-in-matching-buffers ".*" regexp)
+  (interactive (occur-read-primary-args))                        ;; This makes the function prompt leverage an existing occur-mode message in the minibuffer. Could have used "sSearch:" more simply.
+  (multi-occur-in-matching-buffers ".*" regexp)                  ;; self-explanatory; runs the search for the term the user entered "regexp" through all buffers (.*)
 )
 (defun next5()
   (interactive)
