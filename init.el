@@ -29,6 +29,12 @@
 (electric-pair-mode 1)               ;; makes parenthesis create two to stay matched
 (global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files. linum.elc is in emacs24 by default.
 (fset 'yes-or-no-p 'y-or-n-p)        ;; shortens all the yes-or-no prompts to y-or-n
+(defun remove-scratch-buffer ()      ;; Kills *scratch* buffer on start-up
+  (if (get-buffer "*scratch*")       
+      (kill-buffer "*scratch*")))
+(add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
+(setq message-log-max nil)           ;; Kills *Messages* buffer on start-up
+(kill-buffer "*Messages*")
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
