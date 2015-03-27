@@ -33,7 +33,7 @@
   (if (get-buffer "*scratch*")       
       (kill-buffer "*scratch*")))
 (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
-(setq message-log-max nil)           ;; Kills *Messages* buffer on start-up
+(setq-default message-log-max nil)   ;; Kills *Messages* buffer on start-up
 (kill-buffer "*Messages*")
 
 (custom-set-faces
