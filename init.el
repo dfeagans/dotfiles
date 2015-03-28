@@ -55,6 +55,7 @@
  '(show-paren-match ((((class color) (background light)) (:background "black"))))
  '(vertical-border ((t nil)))
  '(minibuffer-prompt ((((class color) (min-colors 8)) (:background "black" :foreground "magenta"))))
+ '(link ((t (:foreground "yellow" :underline t))))
 )
 
 ;; ---------------------------
@@ -96,9 +97,10 @@ http://www.emacswiki.org/emacs/BackwardDeleteWord
 (global-set-key "\M-d" 'delete-word)
 (global-set-key "\C-h" 'delete-backward-char)
 (global-set-key "\M-h" 'delete-backward-word)
+(global-set-key "\C-xh" 'help-command)                    ;; C-h is the Prefix command for help keys. I'm using it to do backspace (above), so this gives another method of using it.
 
 ;; -------- Used Less --------
-(global-set-key "\M-u" 'whitespace-cleanup)               ;;This removes starting and trailing empty lines. Does something with tabs/spaces, but not sure.
+(global-set-key "\M-u" 'whitespace-cleanup)               ;; This removes starting and trailing empty lines. Does something with tabs/spaces, but not sure.
 (fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
 (global-set-key "\M-=" 'align-equals)                     ;; This aligns the assignment operators (=) throughout the document
 (global-set-key "\C-x\C-m" 'execute-extended-command)     ;; This lets you run commands, just like M-x
