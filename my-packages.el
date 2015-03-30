@@ -47,6 +47,10 @@
 
 (require 'yasnippet)
 (yas-global-mode t)
-;;(yas-load-directory "~/.emacs/snippets") ;; Once I make my own snippets put them in here.
+;;(yas-load-directory "~/.emacs/customSnippets") ;; Once I make my own snippets put them in here. See corresponding line in setup.sh to symlink the dir from the dotfiles repo.
 (add-hook 'term-mode-hook (lambda()        ;; Turns off yasnippet when in term-mode so tab-complete works as you'd expect
     (setq yas-dont-activate t)))
+
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
