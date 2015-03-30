@@ -5,10 +5,10 @@
 (require 'package)
 ;; ----- Probably Best Repository But Less Vetted -----
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 ;; ---------- More Stable Package Repository ----------
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 ;; ----------------------------------------------------
@@ -24,8 +24,8 @@
 ;; -------- Function for Checking if Installed --------
 (defun packages-installed-p ()
   (loop for p in required-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
+	when (not (package-installed-p p)) do (return nil)
+	finally (return t)))
 
 ;; ---------- Actually Installs Package List ----------
 
@@ -43,14 +43,21 @@
 ;; -------------- PACKAGE CONFIGURATION ---------------
 ;; ----------------------------------------------------
 
-(require 'smooth-scrolling)                ;; instead of jumping new line to center of the window vertically, cursor stays on the bottom: https://github.com/aspiers/smooth-scrolling
+(require 'smooth-scrolling)                          ;; instead of jumping new line to center of the window vertically, cursor stays on the bottom: https://github.com/aspiers/smooth-scrolling
 
 (require 'yasnippet)
 (yas-global-mode t)
-;;(yas-load-directory "~/.emacs/customSnippets") ;; Once I make my own snippets put them in here. See corresponding line in setup.sh to symlink the dir from the dotfiles repo.
-(add-hook 'term-mode-hook (lambda()        ;; Turns off yasnippet when in term-mode so tab-complete works as you'd expect
+;;(yas-load-directory "~/.emacs/customSnippets")      ;; Once I make my own snippets put them in here. See corresponding line in setup.sh to symlink the dir from the dotfiles repo.
+(add-hook 'term-mode-hook (lambda()                   ;; Turns off yasnippet when in term-mode so tab-complete works as you'd expect
     (setq yas-dont-activate t)))
 
-(require 'auto-complete)
-(require 'auto-complete-config)
-(ac-config-default)
+(require 'auto-complete-config)                       ;; This requires 'auto-complete, so I removed that step. It also includes already includes all the yasnippets
+(ac-config-default)                                   ;; This configures several dictionaries. C-x C-f auto-complete-config it to investigate which ones specifically.
+;;(add-to-list 'ac-dictionary-files "~/.emacs.d/elpa/auto-complete-20150322.813/dict/") ;; Actually uses the all the libraries, like js-mode. Not sure if it uses them inteligently with hooks.
+(define-key ac-complete-mode-map "\C-n" 'ac-next)     ;; Lets you use the standard emacs navigation keys to select auto-complete options (to keep hands on the home-row).
+(define-key ac-complete-mode-map "\C-p" 'ac-previous)
+(define-key ac-complete-mode-map "\C-j" 'ac-complete)
+(define-key ac-complete-mode-map "\C-s" 'ac-isearch)  ;; Lets you search through auto-complete options
+(define-key ac-complete-mode-map "\t" nil)            ;; These two lines stop auto-complete from using tab, so it can be used for yasnippet.
+(define-key ac-complete-mode-map [tab] nil)
+;;(add-to-list 'ac-sources 'ac-source-yasnippet)      ;; Several references said this needed to be included
