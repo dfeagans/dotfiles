@@ -1,4 +1,4 @@
-1;3409;0c;; ----------------------------------------------------
+;; ----------------------------------------------------
 ;; -------------------- REPO LIST ---------------------
 ;; ----------------------------------------------------
 
@@ -48,7 +48,6 @@
 
 (require 'yasnippet)
 (yas-global-mode t)
-;;(yas-load-directory "~/.emacs/customSnippets")      ;; Once I make my own snippets put them in here. See corresponding line in setup.sh to symlink the dir from the dotfiles repo.
 (add-hook 'term-mode-hook (lambda()                   ;; Turns off yasnippet when in term-mode so tab-complete works as you'd expect
     (setq yas-dont-activate t)))
 (define-key yas-minor-mode-map [(tab)]        nil)    ;; these lines make yas-snippet entirely use c-o key-bindings. c-o is normally associated with abbrevs, which i don't use.n
