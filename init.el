@@ -35,6 +35,7 @@
 (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 (setq-default message-log-max nil)   ;; Kills *Messages* buffer on start-up
 (kill-buffer "*Messages*")
+(setq auto-save-default nil)         ;; Stops auto-save files from being created. They're the files that start and end with "#"
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
