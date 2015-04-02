@@ -51,8 +51,8 @@
 (add-hook 'term-mode-hook (lambda()                   ;; Turns off yasnippet when in term-mode so tab-complete works as you'd expect
     (setq yas-dont-activate t)))
 ;;(define-key yas-minor-mode-map [(tab)]      nil)    ;; these lines make yas-snippet entirely use c-o key-bindings. c-o is normally associated with abbrevs, which i don't use.
-(define-key yas-minor-mode-map (kbd "TAB")    nil)    ;; the tab button interferes with auto-complete functionality, so i made it complete seperate.
-(define-key yas-minor-mode-map (kbd "<tab>")  nil)
+(define-key yas-minor-mode-map (kbd "TAB")    nil)    ;; the tab button is better used for auto-complete, so this stops yasnippet from using it. "TAB" changes both TAB and C-i. This is the only line required on an actual terminal, which doesn't differentiate between [tab] key and C-i.
+;;(define-key yas-minor-mode-map (kbd "<tab>")  nil)    ;; This is the tab-key in the graphical terminal (separate from C-i), and therefore not needed since I only use the terminal.
 (define-key yas-minor-mode-map (kbd "\C-o") 'yas-expand) ;; makes C-o expanding snippets.
 
 ;; (require 'auto-complete-config)                       ;; This requires 'auto-complete, so I removed that step. It also includes already includes all the yasnippets
