@@ -64,4 +64,5 @@
 (define-key ac-complete-mode-map "\t" 'ac-complete)   ;; These two lines make tab immedietely complete the auto-complete, it's necessary because even with ac-dwim, tab starts stepping through the list.
 (define-key ac-complete-mode-map [tab] 'ac-complete)  ;; ac-dwim only ac-completes after you've adjusted the cursor. that means for the first one it's a pain.
 (setq-default ac-sources (push 'ac-source-yasnippet ac-sources)) ;; adds yasnippets as a source for autocomplete by default.
-(setq-default ac-modes (push 'markdown-mode ac-modes)) ;; Lets markdown-mode use auto-complete
+(add-to-list 'ac-modes 'markdown-mode)                ;; Lets markdown-mode use auto-complete
+(add-to-list 'ac-modes 'fundamental-mode)             ;; fundamental-mode use auto-complete (this is the most generic emacs mode)
