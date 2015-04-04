@@ -62,7 +62,10 @@
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
 (define-key ac-complete-mode-map "\C-s" 'ac-isearch)  ;; Lets you search through auto-complete options
 (define-key ac-complete-mode-map "\t" 'ac-complete)   ;; These two lines make tab immedietely complete the auto-complete, it's necessary because even with ac-dwim, tab starts stepping through the list.
+(define-key ac-complete-mode-map "\r" nil)            ;; Turns off return from selecting the auto-complete. Force me to use C-i or "TAB".
 (define-key ac-complete-mode-map [tab] 'ac-complete)  ;; ac-dwim only ac-completes after you've adjusted the cursor. that means for the first one it's a pain.
-(setq-default ac-sources (push 'ac-source-yasnippet ac-sources)) ;; adds yasnippets as a source for autocomplete by default.
+(setq-default ac-sources (push 'ac-source-yasnippet ac-sources))            ;; adds yasnippets as a source for autocomplete by default.
+(setq-default ac-sources (push 'ac-source-files-in-current-dir ac-sources)) ;; Uses filenames within the current directory as a source for auto-complete
+(setq-default ac-sources (push 'ac-source-filename ac-sources))             ;; Uses files and directories as a source for auto-complete, starts immedietely after "/"
 (add-to-list 'ac-modes 'markdown-mode)                ;; Lets markdown-mode use auto-complete
 (add-to-list 'ac-modes 'fundamental-mode)             ;; fundamental-mode use auto-complete (this is the most generic emacs mode)
