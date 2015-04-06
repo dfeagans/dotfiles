@@ -22,8 +22,8 @@ ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.gitconfig .
 ln -sb dotfiles/.gitignore_global .
-ln -sb dotfiles/init.el ~/.emacs/.
-ln -sb dotfiles/my-packages ~/.emacs.
+ln -sb ~/dotfiles/init.el ~/.emacs.d/.
+ln -sb ~/dotfiles/my-packages.el ~/.emacs.d/.
 ```
 The emacs configuration is completely handled by init.el and my-packages.el.
 init.el contains the configuration items that don't require external packages/libraries.
