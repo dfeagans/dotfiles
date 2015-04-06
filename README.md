@@ -22,11 +22,9 @@ ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.gitconfig .
 ln -sb dotfiles/.gitignore_global .
-ln -sb ~/dotfiles/init.el ~/.emacs.d/.
-ln -sb ~/dotfiles/my-packages.el ~/.emacs.d/.
+ln -sb ../dotfiles/init.el .emacs.d/.
+ln -sb ../dotfiles/my-packages.el .emacs.d/.
 ```
 The emacs configuration is completely handled by init.el and my-packages.el.
 init.el contains the configuration items that don't require external packages/libraries.
 my-packages.el specifies what libraries to install, installs them, AND configures them.
-
-If you're going to run the above symlinking process in a bash script, you'll have to replace the tilde with /home/ubuntu because it won't be expanding by the bash script when it runs.
