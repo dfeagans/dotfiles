@@ -20,6 +20,7 @@
     smooth-scrolling
     yasnippet
     auto-complete
+    markdown-mode
   ) "List of packages to ensure are installed at launch.")
 
 ;; -------- Function for Checking if Installed --------
@@ -55,6 +56,7 @@
 ;;(define-key yas-minor-mode-map (kbd "\C-o") 'yas-expand) ;; makes C-o expanding snippets. Original plan was to totally separate yasnippet and auto-complete.
 ;;(define-key yas-minor-mode-map (kbd "<tab>")  nil)       ;; This is the tab-key in the graphical terminal (separate from C-i), and therefore not needed since I only use the terminal.
 
+
 (require 'auto-complete-config)                       ;; This requires 'auto-complete, so I removed that step. It also includes already includes all the yasnippets
 (ac-config-default)                                   ;; This configures auto-complete for several modes using several sources. C-x C-f auto-complete-config it to investigate which ones specifically.
 ;;(add-to-list 'ac-dictionary-files "~/.emacs.d/elpa/auto-complete-20150322.813/dict/") ;; Actually uses the all the libraries, like js-mode. Not sure if it uses them inteligently with hooks.
@@ -69,3 +71,19 @@
 (setq-default ac-sources (push 'ac-source-filename ac-sources))             ;; Uses files and directories as a source for auto-complete, starts immedietely after "/"
 (add-to-list 'ac-modes 'markdown-mode)                ;; Lets markdown-mode use auto-complete
 (add-to-list 'ac-modes 'fundamental-mode)             ;; fundamental-mode use auto-complete (this is the most generic emacs mode)
+;;(setq ac-auto-show-menu 0.2)                          ;; speeds up how quickly the auto-complet menu pops up. Default was 0.8. **Ended up being annoying having the menu flashing**
+(setq ac-disable-faces nil)                           ;; AC won't activate over any faces in the ac-disable faces list (default: font-lock-comment-face font-lock-string-face font-lock-doc-face).
+						      ;; The above line sets the ac-disable-faces to nothing so that AC is always active. It was annoying to have it off for strings and comments.
+
+(require 'markdown-mode)                              ;; The below autoload method would make emacs startup quicker (autoload doesn't load unless it's needed), but it makes key-bindings a pain.
+;; (autoload 'markdown-mode "markdown-mode"
+;;   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(define-key markdown-mode-map (kbd "<tab>") nil)      ;; Removes the original tab key-binding in markdown-mode since it's already in heavy use by auto-complete.
+(define-key markdown-mode-map (kbd "<S-iso-lefttab>") nil)          ;; Remobes the original shift-tab key-binding in markdown-mode
+(define-key markdown-mode-map (kbd "<S-tab>") nil)
+(define-key markdown-mode-map (kbd "<backtab>") nil)
+(define-key markdown-mode-map (kbd "<f7>") 'markdown-cycle)
+(define-key markdown-mode-map (kbd "<f8>") 'markdown-shifttab)
