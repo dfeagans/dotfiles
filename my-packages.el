@@ -47,6 +47,7 @@
 
 (require 'smooth-scrolling)                          ;; instead of jumping new line to center of the window vertically, cursor stays on the bottom: https://github.com/aspiers/smooth-scrolling
 
+
 (require 'yasnippet)
 (yas-global-mode t)
 (add-hook 'term-mode-hook (lambda()                   ;; Turns off yasnippet when in term-mode so tab-complete works as you'd expect
@@ -75,15 +76,17 @@
 (setq ac-disable-faces nil)                           ;; AC won't activate over any faces in the ac-disable faces list (default: font-lock-comment-face font-lock-string-face font-lock-doc-face).
 						      ;; The above line sets the ac-disable-faces to nothing so that AC is always active. It was annoying to have it off for strings and comments.
 
-(require 'markdown-mode)                              ;; The below autoload method would make emacs startup quicker (autoload doesn't load unless it's needed), but it makes key-bindings a pain.
-;; (autoload 'markdown-mode "markdown-mode"
-;;   "Major mode for editing Markdown files" t)
+;;(require 'markdown-mode)                              ;; The below autoload method makes emacs startup quicker (autoload doesn't load unless it's needed), but it requires the special keybind method.
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(define-key markdown-mode-map (kbd "<tab>") nil)      ;; Removes the original tab key-binding in markdown-mode since it's already in heavy use by auto-complete.
-(define-key markdown-mode-map (kbd "<S-iso-lefttab>") nil)          ;; Remobes the original shift-tab key-binding in markdown-mode
-(define-key markdown-mode-map (kbd "<S-tab>") nil)
-(define-key markdown-mode-map (kbd "<backtab>") nil)
-(define-key markdown-mode-map (kbd "<f7>") 'markdown-cycle)
-(define-key markdown-mode-map (kbd "<f8>") 'markdown-shifttab)
+(eval-after-load "markdown-mode"
+  '(progn
+     (define-key markdown-mode-map (kbd "<tab>") nil)      ;; Removes the original tab key-binding in markdown-mode since it's already in heavy use by auto-complete.
+     (define-key markdown-mode-map (kbd "<S-iso-lefttab>") nil)          ;; Remobes the original shift-tab key-binding in markdown-mode
+     (define-key markdown-mode-map (kbd "<S-tab>") nil)
+     (define-key markdown-mode-map (kbd "<backtab>") nil)
+     (define-key markdown-mode-map (kbd "<f7>") 'markdown-cycle)
+     (define-key markdown-mode-map (kbd "<f8>") 'markdown-shifttab)))
