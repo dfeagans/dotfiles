@@ -60,7 +60,7 @@
 
 (require 'auto-complete-config)                       ;; This requires 'auto-complete, so I removed that step. It also includes already includes all the yasnippets
 (ac-config-default)                                   ;; This configures auto-complete for several modes using several sources. C-x C-f auto-complete-config it to investigate which ones specifically.
-;;(add-to-list 'ac-dictionary-files "~/.emacs.d/elpa/auto-complete-20150322.813/dict/") ;; Actually uses the all the libraries, like js-mode. Not sure if it uses them inteligently with hooks.
+;;(add-to-list 'ac-dictionary-files "~/.emacs.d/elpa/auto-complete-BUNCHofNUMBERS/dict/") ;; Manually links up the major-mode dictionaries. Done automatically. User-Custom Dictionaries are another method.
 (define-key ac-complete-mode-map "\C-n" 'ac-next)     ;; Lets you use the standard emacs navigation keys to select auto-complete options (to keep hands on the home-row).
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
 (define-key ac-complete-mode-map "\C-s" 'ac-isearch)  ;; Lets you search through auto-complete options
