@@ -85,8 +85,23 @@
 (eval-after-load "markdown-mode"
   '(progn
      (define-key markdown-mode-map (kbd "<tab>") nil)      ;; Removes the original tab key-binding in markdown-mode since it's already in heavy use by auto-complete.
-     (define-key markdown-mode-map (kbd "<S-iso-lefttab>") nil)          ;; Remobes the original shift-tab key-binding in markdown-mode
+     (define-key markdown-mode-map (kbd "<S-iso-lefttab>") nil)          ;; Removes the original shift-tab key-binding in markdown-mode
      (define-key markdown-mode-map (kbd "<S-tab>") nil)
      (define-key markdown-mode-map (kbd "<backtab>") nil)
      (define-key markdown-mode-map (kbd "<f7>") 'markdown-cycle)
      (define-key markdown-mode-map (kbd "<f8>") 'markdown-shifttab)))
+
+;; adds code-folding by using the HideShow library
+;; Normal functions are hs-show-block, hs-hide-block, hs-show-all, and hs-hide-all
+;; The below combines them into two toggling buttons
+(defvar my-hs-hide nil "Current state of hideshow for toggling all.")
+(defun my-toggle-hideshow-all () "Toggle hideshow all."
+  (interactive)
+  (setq my-hs-hide (not my-hs-hide))
+  (if my-hs-hide
+      (hs-hide-all)
+    (hs-show-all)))
+
+(global-set-key (kbd "<f6>") 'my-toggle-hideshow-all)
+(global-set-key (kbd "C-\\") 'hs-toggle-hiding)
+(add-hook 'js-mode-hook 'hs-minor-mode)
