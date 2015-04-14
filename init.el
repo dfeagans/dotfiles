@@ -10,8 +10,8 @@
 ;;(require 'compile)                 ;; !!!!MIGHT BE NEEDED FOR THE JS-MODE!!!!
 (require 'ido)                       ;; Interactive Do enables C-x b changes the buffer. Improves functionality of C-x C-f
 (require 'uniquify)                  ;; Handles when you have two files of the same name in different directories opened.
-(require 'ansi-color)                ;; Useful for the ansi-color-for-comint-mode-on. 
-(load "~/dotfiles/my-packages.el")   ;; Loads AND configures the external packages I use.
+(require 'ansi-color)                ;; Useful for the ansi-color-for-comint-mode-on.
+(load "my-packages.el")              ;; Loads AND configures the external packages I use.
 (menu-bar-mode -1)                   ;; turns the top and bottom menus off because I won't need them in the terminal
 (setq suggest-key-bindings t)        ;; If you run a command using M-x COMMAND, it will show the shortcut on the mini-buffer afterwards
 (setq column-number-mode t)          ;; makes it so the line number the cursor is on is displayed next to the character above the mini-buffer
@@ -30,7 +30,7 @@
 (global-linum-mode 1)                ;; Turns linum-mode on globally to add line numbers to all files. linum.elc is in emacs24 by default.
 (fset 'yes-or-no-p 'y-or-n-p)        ;; shortens all the yes-or-no prompts to y-or-n
 (defun remove-scratch-buffer ()      ;; Kills *scratch* buffer on start-up
-  (if (get-buffer "*scratch*")       
+  (if (get-buffer "*scratch*")
       (kill-buffer "*scratch*")))
 (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 (setq-default message-log-max nil)   ;; Kills *Messages* buffer on start-up
@@ -106,40 +106,3 @@ http://www.emacswiki.org/emacs/BackwardDeleteWord
 (global-set-key "\M-=" 'align-equals)                     ;; This aligns the assignment operators (=) throughout the document
 (global-set-key "\C-x\C-m" 'execute-extended-command)     ;; This lets you run commands, just like M-x
 (global-set-key "\C-z" 'zap-to-char)                      ;; Yanks up to the character you enter the prompt. Useful for deleting sentences (.
-
-;; ---------------------------
-;; -- JS Mode configuration --
-;; ---------------------------
-;; I AM WORKING ON DEVELOPING MY OWN JAVASCRIPT IDE
-;; THIS IS JUST REFERNECE TO THE OLD ONE I USED>
-;;(load "js-config.el")
-;;(add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
-;;(require 'sws-mode)
-;;(require 'jade-mode)
-;;(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-;;(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
-
-;; ---------------------------
-;; ---- Load Markdown Mode ---
-;; ---------------------------
-;; THIS MODE IS NO LONGER USED, JUST FOR REFERENCE NOW
-;; Loads Markdown Mode (http://jblevins.org/projects/markdown-mode/) for the syntax highlighting.
-;; The rest of the options of markdown mode are defined in markdown-mode.el
-;;(autoload 'markdown-mode "markdown-mode"
-;;   "Major mode for editing Markdown files" t)
-;;(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-;;(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-;;(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; ---------------------------
-;; ---- WriteGood Mode -------
-;; ---------------------------
-;; THIS MODE IS NO LONGER USED, JUST FOR REFERENCE NOW
-;; USAGE INFO: bnbeckwith.com/code/writegood-mode.html
-;; GIT PAGE: www.github.com/bnbeckwith/writegood-mode
-
-;; Supply the path to the mode repository
-;;(add-to-list 'load-path "~/.emacs.d/writegood-mode.el")
-;;(require 'writegood-mode)
-;; Set a global key to toggle the mode
-;;(global-set-key "\C-cg" 'writegood-mode)
