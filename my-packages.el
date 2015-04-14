@@ -21,6 +21,7 @@
     yasnippet
     auto-complete
     markdown-mode
+    js-comint
   ) "List of packages to ensure are installed at launch.")
 
 ;; -------- Function for Checking if Installed --------
@@ -91,6 +92,7 @@
      (define-key markdown-mode-map (kbd "<f7>") 'markdown-cycle)
      (define-key markdown-mode-map (kbd "<f8>") 'markdown-shifttab)))
 
+
 ;; adds code-folding by using the HideShow library
 ;; Normal functions are hs-show-block, hs-hide-block, hs-show-all, and hs-hide-all
 ;; The below combines them into two toggling buttons
@@ -105,3 +107,6 @@
 (global-set-key (kbd "<f6>") 'my-toggle-hideshow-all)
 (global-set-key (kbd "C-\\") 'hs-toggle-hiding)
 (add-hook 'js-mode-hook 'hs-minor-mode)
+
+
+(load "js-config.el")   ;; Sets up the js and Node.js environment
