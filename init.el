@@ -7,7 +7,7 @@
 (require 'cl)                        ;; Includes the common lisp language. Used in my-packages and ...
 ;;(require 'dired-x)                 ;; Not going to use unless I find normal dired limiting
 ;;(require 'recentf)                 ;; Tracks recent files: http://emacsredux.com/blog/2013/04/05/recently-visited-files/
-;;(require 'compile)                 ;; !!!!MIGHT BE NEEDED FOR THE JS-MODE!!!!
+(require 'compile)                   ;; Required for comint (JShint)
 (require 'ido)                       ;; Interactive Do enables C-x b changes the buffer. Improves functionality of C-x C-f
 (require 'uniquify)                  ;; Handles when you have two files of the same name in different directories opened.
 (require 'ansi-color)                ;; Useful for the ansi-color-for-comint-mode-on.
