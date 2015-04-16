@@ -7,7 +7,6 @@
 
 
 ;; -------------------- Node REPL ---------------------
-
 (require 'js-comint)
 (setq inferior-js-program-command "node")
 
