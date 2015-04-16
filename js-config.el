@@ -7,8 +7,9 @@
 
 
 ;; -------------------- Node REPL ---------------------
+
 (require 'js-comint)
-;(setq inferior-js-program-command "node")
+(setq inferior-js-program-command "node")
 
 (defun node-repl-comint-preoutput-filter (output)
   "This function fixes the escape issue with node-repl in js-comint.el.
@@ -29,22 +30,21 @@
       ;; Replaced ^ with \^ to indicate that doesn't have to be
       ;; at start of line
       (replace-regexp-in-string
-       "\\\[0K" ""
+       "\\\[0K" ""
        (replace-regexp-in-string
-        "\\\[1G" ""
+	"\\\[1G" ""
        (replace-regexp-in-string
-        "\\\[0J" ""
+	"\\\[0J" ""
        (replace-regexp-in-string
-        "\\\[3G" ""
+	"\\\[3G" ""
        (replace-regexp-in-string
-        "\\\[0G" ""
+	"\\\[0G" ""
        (replace-regexp-in-string
-        "\\[2C" ""
+	"\\[2C" ""
        (replace-regexp-in-string
-        "\\[0K" ""
-        (replace-regexp-in-string
-         "
-" "" output))))))))
+	"\\[0K" ""
+	(replace-regexp-in-string
+	 "" "" output))))))))
       )
     output
   )
