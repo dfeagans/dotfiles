@@ -21,7 +21,7 @@
     yasnippet
     auto-complete
     markdown-mode
-    js-comint
+    ;;js-comint         ;; Using customized js-comint package from Startup-Class instead.
   ) "List of packages to ensure are installed at launch.")
 
 ;; -------- Function for Checking if Installed --------

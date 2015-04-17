@@ -8,7 +8,6 @@
 
 ;; -------------------- Node REPL ---------------------
 (require 'js-comint)
-(setq inferior-js-program-command "node")
 
 (defun node-repl-comint-preoutput-filter (output)
   "This function fixes the escape issue with node-repl in js-comint.el.

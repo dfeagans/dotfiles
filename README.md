@@ -22,9 +22,10 @@ ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.gitconfig .
 ln -sb dotfiles/.gitignore_global .
-ln -sb ../dotfiles/init.el .emacs.d/.
-ln -sb ../dotfiles/my-packages.el .emacs.d/.
+# symlinking won't work if the .emacs.d directory exists, so mv .emacs.d .emacs.d~ if necessary.
+ln -s dotfiles/.emacs.d .
 ```
-The emacs configuration is completely handled by init.el and my-packages.el.
+The emacs configuration is handled by init.el and my-packages.el.
 init.el contains the configuration items that don't require external packages/libraries.
 my-packages.el specifies what libraries to install, installs them, AND configures them.
+The js-config.el, js-comint.el, and node_emacs enable the use of node_repl and jsHint.
