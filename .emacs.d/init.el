@@ -42,10 +42,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit autoface-default :strike-through nil :underline nil :slant normal :weight normal :height 120 :width normal :family "monaco"))))
+ '(default ((t (:inherit autoface-default :strike-through nil :underline nil :slant normal :weight normal :height 120 :width normal :family "monaco" :foreground "#dcdccc"))))
  '(column-marker-1 ((t (:background "red"))))
  '(diff-added ((t (:foreground "cyan"))))
- '(flymake-errline ((((class color) (background light)) (:background "Red"))))
  '(font-lock-comment-face ((((class color) (min-colors 8) (background light)) (:foreground "red"))))
  '(fundamental-mode-default ((t (:inherit default))))
  '(highlight ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
@@ -57,6 +56,9 @@
  '(vertical-border ((t nil)))
  '(minibuffer-prompt ((((class color) (min-colors 8)) (:background "black" :foreground "magenta"))))
  '(link ((t (:foreground "yellow" :underline t))))
+ '(markdown-header-face ((t (:foreground "color-33"))))
+ '(markdown-header-rule-face ((t (:foreground "color-33"))))
+ '(markdown-header-delimiter-face ((t (:foreground "color-237"))))
 )
 
 ;; ---------------------------

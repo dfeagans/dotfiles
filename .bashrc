@@ -196,4 +196,4 @@ if [ -s ~/.nvm/nvm.sh ]; then
 fi
 
 # Custom Aliases
-#alias work="emacs ~/Work/Tasks.md"
+alias work="emacs ~/work/tasks.md"
