@@ -109,4 +109,12 @@
 (add-hook 'js-mode-hook 'hs-minor-mode)
 
 
-(load "js-config.el")   ;; Sets up the js and Node.js environment
+(load "js-config.el")                                 ;; Sets up the js and Node.js environment
+
+
+(autoload                                             ;; Sets up ace-jump-mode and tells it to use C-c SPC to start the search for the starting letter you type in.
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
