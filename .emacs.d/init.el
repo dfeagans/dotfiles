@@ -98,7 +98,7 @@ http://www.emacswiki.org/emacs/BackwardDeleteWord
   (interactive "p")
   (delete-word (- arg)))
 
-(global-set-key (kbd "M-s s") 'multi-occur-in-all-open-buffers)
+(global-set-key (kbd "M-s s") 'multi-occur-in-all-open-buffers) ;; This is awesome because you can use C-m in the buffer that opens to move the mark to that hit in the search.
 (global-set-key "\M-n" 'next5)
 (global-set-key "\M-p" 'prev5)
 (global-set-key "\M-d" 'delete-word)
