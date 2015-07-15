@@ -197,3 +197,4 @@ fi
 
 # Custom Aliases
 alias work="emacs ~/work/tasks.md"
+alias s="screen"
