@@ -54,6 +54,8 @@
 (add-hook 'term-mode-hook (lambda()                   ;; Turns off yasnippet when in term-mode so tab-complete works as you'd expect
     (setq yas-dont-activate t)))
 ;; ---- The below was commented out because once you add yasnippets as a source to auto-complete, ac-complete (tab) automatically expands the snippet. ----
+;; ---- The only annoying part is when you use yasnippet to expand something and you want to use tab to jump sections in the snippet. You might type something and want to hit tab to jump sections
+;; but the autocomplete menu will come up, hitting tab would autocomplete your term, instead of jumping, you just have to hit C-g to escape the autocomplete menu first, then tab to jump sections ---- 
 ;;(define-key yas-minor-mode-map (kbd "TAB")    nil)       ;; the tab button is better used for auto-complete, so this stops yasnippet from using it. "TAB" changes both TAB and C-i, so works in terminals.
 ;;(define-key yas-minor-mode-map (kbd "\C-o") 'yas-expand) ;; makes C-o expanding snippets. Original plan was to totally separate yasnippet and auto-complete.
 ;;(define-key yas-minor-mode-map (kbd "<tab>")  nil)       ;; This is the tab-key in the graphical terminal (separate from C-i), and therefore not needed since I only use the terminal.
