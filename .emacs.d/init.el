@@ -63,6 +63,7 @@
  '(markdown-header-face-4 ((t (:foreground "color-29"))))
  '(markdown-header-face-5 ((t (:foreground "color-28"))))
  '(markdown-header-delimiter-face ((t (:foreground "color-237"))))
+ '(markdown-bold-face ((t (:foreground "brightyellow"))))
 )
 
 ;; ---------------------------
