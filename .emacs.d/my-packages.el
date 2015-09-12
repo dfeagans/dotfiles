@@ -85,6 +85,7 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 (eval-after-load "markdown-mode"
   '(progn
      (define-key markdown-mode-map (kbd "<tab>") nil)      ;; Removes the original tab key-binding in markdown-mode since it's already in heavy use by auto-complete.
