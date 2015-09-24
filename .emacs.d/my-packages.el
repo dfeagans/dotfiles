@@ -155,7 +155,8 @@
      (setq web-mode-enable-current-element-highlight t)                 ;; Highlights matching tag element for current tag ex. Highlights the closing tag for the open tag your point is at.
      (setq web-mode-enable-current-column-highlight t)                  ;; Highlights a column to show the length of the current tag.
      (setq web-mode-enable-auto-closing t)                              ;; Makes it so that if you type <body>, it will automatically create the closing tag </body> once you type the "</"
-;;     (setq web-mode-tag-auto-close-style 2)                             ;; This controls how the previous autoclose works. 1=close on "</". 2=close on ">".
-     (setq web-mode-enable-auto-expanding t)                            ;; Turns on autoexpansion of things like d/ to <div>|</div> see web-mode source for full list of items, but it's a-z followed by /.
+     (setq web-mode-auto-close-style 2)                                 ;; This controls how the previous autoclose works. 0=auto-closing. 1=close on "</". 2=close on ">".
+     (setq web-mode-enable-auto-expanding t)                            ;; Turns on auto-expansion of things like d/ to <div>|</div> see web-mode source for full list of items, but it's a-z followed by /. REMOVE LATER IF I DON'T USE.
 ;;     (setq web-mode-enable-auto-pairing t)
+     (define-key web-mode-map (kbd "C-m") 'web-mode-mark-and-expand)    ;; this command is tied to c-c c-m by default. it's really useful though.
      (define-key web-mode-map (kbd "C-\\") 'web-mode-fold-or-unfold)))  ;; make the web-mode code-folding have the same shortcut as my js-mode code folding.
