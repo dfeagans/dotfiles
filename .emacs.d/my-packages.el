@@ -22,6 +22,7 @@
     auto-complete
     markdown-mode
     web-mode
+    expand-region
     ;;js-comint         ;; Using customized js-comint package from Startup-Class instead.
   ) "List of packages to ensure are installed at launch.")
 
@@ -61,6 +62,11 @@
   '(ace-jump-mode-enable-mark-sync))
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+
+;; --- EXPAND-REGION ---------------------------------;;
+(require 'expand-region)
+(global-set-key (kbd "C-m") 'er/expand-region)
 
 
 ;; --- YASNIPPET -------------------------------------;;
@@ -160,3 +166,4 @@
 ;;     (setq web-mode-enable-auto-pairing t)
      (define-key web-mode-map (kbd "C-m") 'web-mode-mark-and-expand)    ;; this command is tied to c-c c-m by default. it's really useful though.
      (define-key web-mode-map (kbd "C-\\") 'web-mode-fold-or-unfold)))  ;; make the web-mode code-folding have the same shortcut as my js-mode code folding.
+
