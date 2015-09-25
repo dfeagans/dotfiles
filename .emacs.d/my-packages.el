@@ -48,6 +48,7 @@
 ;; -------------- PACKAGE CONFIGURATION ---------------
 ;; ----------------------------------------------------
 
+
 ;; --- SMOOTH SCROLLING -----------------------------;;
 (require 'smooth-scrolling)                          ;; instead of jumping new line to center of the window vertically, cursor stays on the bottom: https://github.com/aspiers/smooth-scrolling
 
@@ -100,6 +101,7 @@
 ;;(setq ac-auto-show-menu 0.2)                          ;; speeds up how quickly the auto-complet menu pops up. Default was 0.8. **Ended up being annoying having the menu flashing**
 (setq ac-disable-faces nil)                           ;; AC won't activate over any faces in the ac-disable faces list (default: font-lock-comment-face font-lock-string-face font-lock-doc-face).
 						      ;; The above line sets the ac-disable-faces to nothing so that AC is always active. It was annoying to have it off for strings and comments.
+
 
 ;; --- MARKDOWN-MODE -------------------------------- ;;
 ;; The below autoload method makes emacs startup quicker (autoload doesn't load unless it's needed), but it requires the special eval-after-load to do the keybinding since it can't do it until the
@@ -162,8 +164,7 @@
      (setq web-mode-enable-current-column-highlight t)                  ;; Highlights a column to show the length of the current tag.
      (setq web-mode-enable-auto-closing t)                              ;; Makes it so that if you type <body>, it will automatically create the closing tag </body> once you type the "</"
      (setq web-mode-auto-close-style 2)                                 ;; This controls how the previous autoclose works. 0=auto-closing. 1=close on "</". 2=close on ">".
-     (setq web-mode-enable-auto-expanding t)                            ;; Turns on auto-expansion of things like d/ to <div>|</div> see web-mode source for full list of items, but it's a-z followed by /. REMOVE LATER IF I DON'T USE.
+     (setq web-mode-enable-auto-expanding t)                            ;; Turns on auto-expansion for "d/" to "<div>|</div>", see web-mode.el for full (a-z)/ list. REMOVE LATER IF I DON'T USE.
 ;;     (setq web-mode-enable-auto-pairing t)
-     (define-key web-mode-map (kbd "C-m") 'web-mode-mark-and-expand)    ;; this command is tied to c-c c-m by default. it's really useful though.
+;;     (define-key web-mode-map (kbd "C-m") 'web-mode-mark-and-expand)    ;; this command is tied to c-c c-m by default. C-m matches the normal expand-region command above. This would have over-ridden the expand-region C-m keybinding when web-mode was on. It's suppressed because when you dig into expand-region.el, you see it actually utilizes the web-mode expansion function anyways.
      (define-key web-mode-map (kbd "C-\\") 'web-mode-fold-or-unfold)))  ;; make the web-mode code-folding have the same shortcut as my js-mode code folding.
-
