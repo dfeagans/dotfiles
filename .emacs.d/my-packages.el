@@ -167,4 +167,5 @@
      (setq web-mode-enable-auto-expanding t)                            ;; Turns on auto-expansion for "d/" to "<div>|</div>", see web-mode.el for full (a-z)/ list. REMOVE LATER IF I DON'T USE.
 ;;     (setq web-mode-enable-auto-pairing t)
 ;;     (define-key web-mode-map (kbd "C-m") 'web-mode-mark-and-expand)    ;; this command is tied to c-c c-m by default. C-m matches the normal expand-region command above. This would have over-ridden the expand-region C-m keybinding when web-mode was on. It's suppressed because when you dig into expand-region.el, you see it actually utilizes the web-mode expansion function anyways.
+     (add-to-list 'web-mode-comment-formats '("javascript" . "//" ))    ;; This makes web-mode recognize // as a comment indicator. For some reason it made the group /* */ comment method work better too.
      (define-key web-mode-map (kbd "C-\\") 'web-mode-fold-or-unfold)))  ;; make the web-mode code-folding have the same shortcut as my js-mode code folding.
