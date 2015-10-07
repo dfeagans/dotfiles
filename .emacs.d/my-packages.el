@@ -119,7 +119,7 @@
      (define-key markdown-mode-map (kbd "<S-iso-lefttab>") nil)         ;; Removes the original shift-tab key-binding in markdown-mode
      (define-key markdown-mode-map (kbd "<S-tab>") nil)
      (define-key markdown-mode-map (kbd "<backtab>") nil)
-     (define-key markdown-mode-map (kbd "<f7>") 'markdown-cycle)
+     (define-key markdown-mode-map (kbd "C-\\") 'markdown-cycle)
      (define-key markdown-mode-map (kbd "<f8>") 'markdown-shifttab)
      (define-key markdown-mode-map "\M-n" nil)                          ;; Stops markdown-mode from clobbering my Next5 and Prev5 map-keys that are defined in init.el
      (define-key markdown-mode-map "\M-p" nil)))
