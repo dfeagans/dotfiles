@@ -154,7 +154,7 @@
   "MAJOR mode for editing web files (css and html)" t)
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . web-mode))
-(add-hook 'web-mode-hook (lambda()                   ;; turns off yasnippet when in term-mode so tab-complete works as you'd expect
+(add-hook 'web-mode-hook (lambda()
 			   ;;(yas-activate-extra-mode 'html-mode)       ;; The yasnippet html snippets weren't really that good (except form), plus web-mode already has snippest (see web-mode-expanders in web-mode.el for list).
 			   (yas-activate-extra-mode 'js-mode)))
 (eval-after-load 'web-mode
