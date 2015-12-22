@@ -110,9 +110,9 @@
 ;; per buffer settings, while eval-after-load only runs once when the package is loaded the first time (usually at start-up). Therefore do key-bindings in eval-after-loads so that they're only run once (that's all they need to be run, otherwise it's just running extra code everytime you open a buffer that calls the mode-hooks).
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.text\\'" . gfm-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 (eval-after-load "markdown-mode"
   '(progn
@@ -125,7 +125,7 @@
      (define-key markdown-mode-map "\M-n" nil)                          ;; Stops markdown-mode from clobbering my Next5 and Prev5 map-keys that are defined in init.el
      (define-key markdown-mode-map "\M-p" nil)))
 
-(add-hook 'visual-line-mode-hook 'adaptive-wrap-prefix-mode)            ;; Turns on adaptive-wrap-prefix-mode which indents lines when they overwrap to the next line. Not that it's hooked to visual-line-mode since that's what gfm-mode uses.
+(add-hook 'markdown-mode-hook 'adaptive-wrap-prefix-mode)            ;; Turns on adaptive-wrap-prefix-mode which indents lines when they overwrap to the next line. Not that it's hooked to visual-line-mode since that's what gfm-mode uses.
 
 (add-hook 'markdown-mode-hook(lambda ()                                 ;; This turns off linum-mode when in markdown-mode since the line numbers slow down big files.
 	    (linum-mode 0)))
