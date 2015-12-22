@@ -20,7 +20,7 @@
     smooth-scrolling
     yasnippet
     auto-complete
-    ;;adaptive-wrap     ;; Adaptive-wrap is enabled during markdown-mode to auto-indent lines that wrap around. It's not a default package, so I added it to this list, but it wasn't required.
+    adaptive-wrap
     markdown-mode
     web-mode
     expand-region
@@ -125,8 +125,7 @@
      (define-key markdown-mode-map "\M-n" nil)                          ;; Stops markdown-mode from clobbering my Next5 and Prev5 map-keys that are defined in init.el
      (define-key markdown-mode-map "\M-p" nil)))
 
-(add-hook 'visual-line-mode-hook(lambda ()                              ;; Turns on adaptive-wrap-prefix-mode which indents lines when they overwrap to the next line. Not that it's hooked to visual-line-mode since that's what gfm-mode uses.
-	    (adaptive-wrap-prefix-mode 1)))
+(add-hook 'visual-line-mode-hook 'adaptive-wrap-prefix-mode)            ;; Turns on adaptive-wrap-prefix-mode which indents lines when they overwrap to the next line. Not that it's hooked to visual-line-mode since that's what gfm-mode uses.
 
 (add-hook 'markdown-mode-hook(lambda ()                                 ;; This turns off linum-mode when in markdown-mode since the line numbers slow down big files.
 	    (linum-mode 0)))
