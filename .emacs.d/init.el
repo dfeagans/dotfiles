@@ -121,7 +121,7 @@ http://www.emacswiki.org/emacs/BackwardDeleteWord
 (defun now ()
   "Insert string for the current time formatted like '2:34 PM'."
   (interactive)
-  (insert (format-time-string "%-I:%M%p")))
+  (insert (format-time-string "%-I:%M%P")))
 
 (defun today ()
   "Insert string for today's date, in American-style i.e. mn/dy/year."
