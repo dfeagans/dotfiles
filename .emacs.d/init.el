@@ -61,7 +61,7 @@
  '(markdown-header-face-2 ((t (:foreground "color-31" :weight bold))))
  '(markdown-header-face-3 ((t (:foreground "color-30"))))
  '(markdown-header-face-4 ((t (:foreground "color-29"))))
- '(markdown-header-face-5 ((t (:foreground "color-28"))))
+ '(markdown-header-face-5 ((t (:background "color-28" :foreground "white"))))
  '(markdown-header-delimiter-face ((t (:foreground "color-237"))))
  '(markdown-bold-face ((t (:foreground "brightyellow"))))
  '(web-mode-current-element-highlight-face ((t (:background "#3e3c36"))))
