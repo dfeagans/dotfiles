@@ -115,3 +115,18 @@ http://www.emacswiki.org/emacs/BackwardDeleteWord
 (global-set-key "\M-=" 'align-equals)                     ;; This aligns the assignment operators (=) throughout the document
 (global-set-key "\C-x\C-m" 'execute-extended-command)     ;; This lets you run commands, just like M-x
 (global-set-key "\C-z" 'zap-to-char)                      ;; Yanks up to the character you enter the prompt. Useful for deleting sentences (.
+
+;; -------- Insert Time and Date --------
+;; On Ubuntu, to check the timezone use "more /etc/timezone", to change it use "sudo dpkg-reconfigure tzdata"
+(defun now ()
+  "Insert string for the current time formatted like '2:34 PM'."
+  (interactive)
+  (insert (format-time-string "%-I:%M%p")))
+
+(defun today ()
+  "Insert string for today's date, in American-style i.e. mn/dy/year."
+  (interactive)
+  (insert (format-time-string "%D")))
+
+(global-set-key "\C-c\C-e" 'now)
+(global-set-key "\C-c\C-d" 'today)
