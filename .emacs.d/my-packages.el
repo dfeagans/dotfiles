@@ -68,7 +68,7 @@
 
 ;; --- EXPAND-REGION ---------------------------------;;
 (require 'expand-region)
-(global-set-key (kbd "C-m") 'er/expand-region)        ;; The other option for this is mark-defun command, which is tied to C-M-h. It selects the entire defun region. Kind of acts as a super region select.
+(global-set-key (kbd "M-2") 'er/expand-region)        ;; The other option for this is mark-defun command, which is tied to C-M-h. It selects the entire defun region. Kind of acts as a super region select.
 
 
 ;; --- YASNIPPET -------------------------------------;;
