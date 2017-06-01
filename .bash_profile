@@ -53,3 +53,5 @@ export PATH=$HOME/bin:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+# - The below line was to put the Anaconda/Conda Python Package Management Tool in the path
+export PATH=$HOME/anaconda3/bin:$PATH
